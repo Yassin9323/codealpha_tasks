@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shorten</title>
+    <link rel="stylesheet" href="static/styles/index.css" />
+  </head>
+  <body>
+    <!-- header -->
+    <div class="header">
+        <img src="static/images/logo.png" class="imgh"/>
+    </div>
+
+    <!-- main section -->
+    <div class="container">
+      <div class="centered-container">
+        <div class="left-side">
+          <h1>Input your long URL and get a short code instantly!</h1>
+          <form action="{{ url_for('shorten_url') }}" method="POST">
+            <div class="shorten bar">
+              <input type="text" name="original_url" 
+                  placeholder="Enter URL .." 
+                  value="{{ short_code if short_code else '' }}" required />
+              <button type="submit" class="btn">Shorten</button>
+            </div>
+          </form>
+        </div>
+        <div class="right-side">
+        <img src="static/images/Background.png" class="imgb" />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
