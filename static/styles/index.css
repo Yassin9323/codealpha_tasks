@@ -170,7 +170,7 @@ body {
   }
 
     .h1 {
-      font-size: 19px;
+      font-size: 20px;
     }
     .left-side input {
       width: 100%;
@@ -180,6 +180,6 @@ body {
         position: flex;
         top: 20px; /* Move btn below imgb */
         right: 20px;
-        width: 50%;
+        width: 51%;
       }
   }
