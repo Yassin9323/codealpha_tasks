@@ -1,4 +1,9 @@
 from sqlalchemy.exc import SQLAlchemyError
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy import create_engine
+from sqlalchemy.orm import scoped_session, sessionmaker
+
+Base = declarative_base()
 
 class DBStorage:
     """Interacts with the MySQL database"""
