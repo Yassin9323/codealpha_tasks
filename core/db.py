@@ -17,11 +17,15 @@ class DBStorage:
             'mysql+pymysql://{}:{}@{}/{}'
             .format('url_dev', 'url_dev_pwd', 'localhost', 'url_dev_db')
         )
+        self.reload()  # Initialize the session here
     
     def new(self, obj):
         """Add the object to the current database session"""
+        if self.__session is None:
+            raise Exception("Session is not initialized.")
+        print(obj)
         self.__session.add(obj)
-
+        
     def save(self):
         """Commit all changes of the current database session"""
         self.__session.commit()
@@ -35,8 +39,7 @@ class DBStorage:
         """Reloads data from the database"""
         Base.metadata.create_all(self.__engine)
         sess_factory = sessionmaker(bind=self.__engine, expire_on_commit=False)
-        Session = scoped_session(sess_factory)
-        self.__session = Session
+        self.__session = scoped_session(sess_factory)
 
     def close(self):
         """Call remove() method on the private session attribute"""
