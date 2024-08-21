@@ -5,10 +5,12 @@ starts a Url Shortener web application
 from flask import Flask, request, redirect, jsonify, render_template
 import string
 import random
-from __init__ import storage
+# from __init__ import storage
+from core.db import DBStorage
 from core.models import URL
 
 app = Flask(__name__)
+db_storage = DBStorage()
 
 @app.route('/', strict_slashes=False)
 def index():
@@ -39,8 +41,8 @@ def shorten_url():
     short_code = generate_short_code()
     # Store the URL and short code in the database
     new_url = URL(original_url=original_url, short_code=short_code)
-    storage.new(new_url)
-    storage.save()
+    db_storage.new(new_url)
+    db_storage.save()
     
     # short_code = short_code[22:]
     return render_template('index.html', short_code=short_code)
@@ -53,7 +55,7 @@ def redirect_to_url(short_code):
     print(short_code)
     print(short_code)
     short_code = short_code.strip()
-    url_entry = storage.get(URL, short_code)
+    url_entry = db_storage.get(URL, short_code)
     # link = url_entry.original_url
     # print(link)
     if url_entry:
