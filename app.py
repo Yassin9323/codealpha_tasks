@@ -22,7 +22,6 @@ def index():
 def generate_short_code(length=6):
     characters = string.ascii_letters + string.digits
     short_code = ''.join(random.choice(characters) for _ in range(length))
-    # short_code = f'http://127.0.0.1:5000/{short_code}'
     return (short_code)
 
 @app.route('/shorten', methods=['POST'])
@@ -47,7 +46,7 @@ def shorten_url():
     db_storage.new(new_url)
     db_storage.save()
 
-    short_code = f"https://shortify-nine.vercel.app/{short_code}"
+    short_code = f"ax/{short_code}"
     return render_template('index.html', short_code=short_code)
 
 
