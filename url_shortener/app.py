@@ -5,8 +5,8 @@ starts a Url Shortener web application
 from flask import Flask, request, redirect, jsonify, render_template
 import string
 import random
-from api import storage
-from api.core.models import URL
+from __init__ import storage
+from core.models import URL
 
 app = Flask(__name__)
 

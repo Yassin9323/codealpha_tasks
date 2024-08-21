@@ -2,7 +2,7 @@
 """ class urls """
 from sqlalchemy import Column, String, Integer, DateTime
 from datetime import datetime
-from api.core.db import Base
+from core.db import Base
 
 
 class URL(Base):
