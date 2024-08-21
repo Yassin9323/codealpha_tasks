@@ -41,12 +41,13 @@ def shorten_url():
         
     # Generate a short code
     short_code = generate_short_code()
+    
     # Store the URL and short code in the database
     new_url = URL(original_url=original_url, short_code=short_code)
     db_storage.new(new_url)
     db_storage.save()
-    
-    # short_code = short_code[22:]
+
+    short_code = f"https://shortify-nine.vercel.app/{short_code}"
     return render_template('index.html', short_code=short_code)
 
 
