@@ -19,7 +19,7 @@ def index():
     """ rendering home page of project """
     return render_template('index.html')
 
-def generate_short_code(length=6):
+def generate_short_code(length=2):
     characters = string.ascii_letters + string.digits
     short_code = ''.join(random.choice(characters) for _ in range(length))
     return (short_code)
