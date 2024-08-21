@@ -5,6 +5,8 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
 
 Base = declarative_base()
+from dotenv import load_dotenv
+load_dotenv()
 
 class DBStorage:
     """Interacts with the PostgreSQL database"""
