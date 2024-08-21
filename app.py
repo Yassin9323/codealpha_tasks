@@ -2,15 +2,17 @@
 """
 starts a Url Shortener web application
 """
-from flask import Flask, request, redirect, jsonify, render_template
 import string
 import random
-# from __init__ import storage
+from flask import Flask, request, redirect, jsonify, render_template
 from core.db import DBStorage
 from core.models import URL
+from dotenv import load_dotenv
 
 app = Flask(__name__)
+
 db_storage = DBStorage()
+load_dotenv()
 
 @app.route('/', strict_slashes=False)
 def index():

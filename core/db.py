@@ -1,3 +1,4 @@
+import os
 from sqlalchemy.exc import SQLAlchemyError
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import create_engine
@@ -6,17 +7,17 @@ from sqlalchemy.orm import scoped_session, sessionmaker
 Base = declarative_base()
 
 class DBStorage:
-    """Interacts with the MySQL database"""
+    """Interacts with the PostgreSQL database"""
     __engine = None
     __session = None
 
     def __init__(self):
         """Initialize the DBStorage instance"""
         try:
-            self.__engine = create_engine(
-                'mysql+pymysql://{}:{}@{}/{}'
-                .format('url_dev', 'url_dev_pwd', 'localhost', 'url_dev_db')
-            )
+            database_url = os.getenv('DATABASE_URL')
+            if not database_url:
+                raise ValueError("DATABASE_URL environment variable is not set.")
+            self.__engine = create_engine(database_url)
             self.reload()  # Initialize the session here
         except SQLAlchemyError as e:
             print(f"Error initializing database connection: {e}")
