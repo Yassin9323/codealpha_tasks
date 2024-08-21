@@ -54,10 +54,10 @@ def redirect_to_url(short_code):
     print(short_code)
     short_code = short_code.strip()
     url_entry = storage.get(URL, short_code)
-    link = url_entry.original_url
-    print(link)
+    # link = url_entry.original_url
+    # print(link)
     if url_entry:
-        return redirect(link)
+        return redirect(url_entry.original_url)
     else:
         return jsonify({"error": "Short code not found"}), 404
     

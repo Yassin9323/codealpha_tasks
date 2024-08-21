@@ -48,7 +48,7 @@ class DBStorage:
     def get(self, cls, short_code):
         """ get the instance of link """
         instance = self.__session.query(cls).filter_by(short_code=short_code).first()
-        print(instance.__dict__)
+        # print(instance.__dict__)
         return instance
         
     def count(self, cls):
