@@ -5,8 +5,8 @@ starts a Url Shortener web application
 from flask import Flask, request, redirect, jsonify, render_template
 import string
 import random
-from url_shortener import storage
-from url_shortener.core.models import URL
+from api import storage
+from api.core.models import URL
 
 app = Flask(__name__)
 
@@ -60,6 +60,7 @@ def redirect_to_url(short_code):
         return redirect(link)
     else:
         return jsonify({"error": "Short code not found"}), 404
-
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    
+    
+if __name__ == "__main__":
+    app.run()

@@ -4,9 +4,9 @@ initialize the models package
 """
 
 from os import getenv
-from  url_shortener.core.db import DBStorage
+from  api.core.db import DBStorage
 from sqlalchemy import inspect
-from url_shortener.core.models import URL
+from api.core.models import URL
 # import string
 # import random
 
