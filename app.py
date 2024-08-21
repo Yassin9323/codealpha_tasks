@@ -46,7 +46,7 @@ def shorten_url():
     db_storage.new(new_url)
     db_storage.save()
 
-    short_code = f"ax/{short_code}"
+    short_code = f"s-y-w.vercel.app/{short_code}"
     return render_template('index.html', short_code=short_code)
 
 
