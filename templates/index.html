@@ -109,8 +109,8 @@
         }
 
             var form = document.getElementById("shortenForm");
-            console.log(form)
             var formData = new FormData(form);
+            console.log(formData)
             
             // Send form data to server and get shortened link
             fetch(form.action, {
