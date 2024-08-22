@@ -173,7 +173,18 @@ body {
     position: relative;
     top: 20px; /* Move #btn below imgb */
   }
+  .modal-content{
+  background-color: #2c2e3a;
+  margin: 135% auto;
+  padding: 20px;
+  /* border: 1px solid #888; */
+  width: 60%;
+  border-radius: 150px;
+  font-size: 25px;
+  color: #0a21c0;
+    }
 }
+
 
 /* For screens with a maximum width of 480px (e.g., smartphones) */
 @media only screen and (max-width: 480px) {
@@ -224,4 +235,15 @@ body {
     right: 20px;
     width: 51%;
   }
+
+  .modal-content{
+    background-color: #2c2e3a;
+    margin: 135% auto;
+    padding: 20px;
+    /* border: 1px solid #888; */
+    width: 60%;
+    border-radius: 150px;
+    font-size: 25px;
+    color: #0a21c0;
+      }
 }
