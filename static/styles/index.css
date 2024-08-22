@@ -179,6 +179,10 @@ body {
     position: relative;
     top: 20px; /* Move #btn below imgb */
   }
+  #btn:hover {
+    background-color: #050a44;
+    color: white;
+  }
   .modal-content{
   background-color: #2c2e3a;
   margin: 135% auto;
@@ -248,6 +252,10 @@ body {
     top: 20px; /* Move #btn below imgb */
     right: 20px;
     width: 51%;
+  }
+  #btn:hover {
+    background-color: #050a44;
+    color: white;
   }
 
   .modal-content{
