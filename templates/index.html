@@ -44,6 +44,8 @@
       <div class="modal-content">
         <span class="close">&times;</span>
         <p> <span id="shortenedLink"></span></p>
+        <p id="copyMessage" style="display:none; color:green;">Copied to clipboard!</p>
+
       </div>
     </div>
 
@@ -56,13 +58,35 @@
         
         // Get the <span> element that closes the modal
         var span = document.getElementsByClassName("close")[0];
+
+        var shortenedLink = document.getElementById("shortenedLink");
+
         
         // Function to show the modal with the short link
         function showModal(shortLink) {
-            var shortenedLink = document.getElementById("shortenedLink");
             shortenedLink.innerHTML = shortLink;
             modal.style.display = "block";
         }
+
+        // Copy to clipboard function
+        shortenedLink.onclick = function() {
+          var textArea = document.createElement("textarea");
+          textArea.value = shortenedLink.innerHTML;
+          document.body.appendChild(textArea);
+          textArea.select();
+          document.execCommand("copy");
+          document.body.removeChild(textArea);
+
+          // Display a "Copied!" message
+          var copyMessage = document.getElementById("copyMessage");
+          copyMessage.style.display = "block";
+
+          // Hide the message after 2 seconds
+          setTimeout(function() {
+              copyMessage.style.display = "none";
+          }, 2000);
+        }
+
         
         // When the user clicks the shorten button, submit the form via AJAX
         btn.onclick = function() {
