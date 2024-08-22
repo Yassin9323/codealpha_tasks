@@ -77,7 +77,7 @@
         // Copy to clipboard function
         shortenedLink.onclick = function() {
           var textArea = document.createElement("textarea");
-          textArea.value = modalContent.innerHTML;
+          textArea.value = shortenedLink.innerHTML;
           document.body.appendChild(textArea);
           textArea.select();
           document.execCommand("copy");
