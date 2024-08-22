@@ -119,6 +119,7 @@
             }).then(response => response.json())
               .then(data => {
                   var shortLink = data.short_code;
+                  console.log(shortLink)
                   showModal(shortLink);
               });
         }

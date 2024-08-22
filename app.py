@@ -54,12 +54,15 @@ def shorten_url():
 def redirect_to_url(short_code):
     # Query the database for the original URL
     # short_code = f"{short_code}"
-    print(short_code)
-    print(short_code)
     short_code = short_code.strip()
+    print(short_code)
+    
     url_entry = db_storage.get(URL, short_code)
-    # link = url_entry.original_url
-    # print(link)
+    print(url_entry)
+    
+    print("Hello !")
+    print("\n\n\n\n")
+    print(url_entry.original_url)
     if url_entry:
         return redirect(url_entry.original_url)
     else:
