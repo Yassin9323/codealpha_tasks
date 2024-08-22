@@ -43,7 +43,7 @@
     <div id="shortenModal" class="modal">
       <div class="modal-content">
         <span class="close">&times;</span>
-        <p>Your shortened link is: <a id="shortenedLink" href="#" target="_blank"></a></p>
+        <p> <span id="shortenedLink"></span></p>
       </div>
     </div>
 
@@ -60,7 +60,6 @@
         // Function to show the modal with the short link
         function showModal(shortLink) {
             var shortenedLink = document.getElementById("shortenedLink");
-            shortenedLink.href = shortLink;
             shortenedLink.innerHTML = shortLink;
             modal.style.display = "block";
         }
