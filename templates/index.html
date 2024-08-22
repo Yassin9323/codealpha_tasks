@@ -93,6 +93,14 @@
         
         // When the user clicks the shorten button, submit the form via AJAX
         btn.onclick = function() {
+          var inputField = document.querySelector('input[name="original_url"]');
+          var originalUrl = inputField.value.trim();
+          
+          if (originalUrl === "") {
+              alert("URL Required");
+              return;
+          }
+
             var form = document.getElementById("shortenForm");
             var formData = new FormData(form);
             
