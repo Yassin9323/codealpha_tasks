@@ -26,7 +26,7 @@ def generate_short_code(length=2):
 
 @app.route('/shorten', methods=['POST'])
 def shorten_url():
-    # data = request.form.get_json()
+    """  shorten a url """
     original_url = request.form.get('original_url')
     
     if not original_url:
@@ -47,7 +47,7 @@ def shorten_url():
     db_storage.save()
 
     short_code = f"s-y-w.vercel.app/{short_code}"
-    return render_template('index.html', short_code=short_code)
+    return jsonify(short_code=short_code)
 
 
 @app.route('/<short_code>')

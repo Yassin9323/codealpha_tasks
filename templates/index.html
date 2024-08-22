@@ -20,7 +20,7 @@
       <div class="centered-container">
         <div class="left-side">
           <h1>Input your long URL and get a short code instantly!</h1>
-          <form action="{{ url_for('shorten_url') }}" method="POST">
+          <form id="shortenForm" action="{{ url_for('shorten_url') }}" method="POST">
             <div class="shorten bar">
               <input
                 type="text"
@@ -30,14 +30,6 @@
               />
               
               <button type="button" id="btn">Shorten</button>
-
-              <!-- Modal Structure -->
-              <div id="shortenModal" class="modal">
-                <div class="modal-content">
-                  <span class="close">&times;</span>
-                  <p>Your shortened link is: <a id="shortenedLink" href="#" target="_blank"></a></p>
-                </div>
-              </div>
             </div>
           </form>
         </div>
@@ -46,6 +38,15 @@
         </div>
       </div>
     </div>
+
+    <!-- Modal Structure -->
+    <div id="shortenModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>Your shortened link is: <a id="shortenedLink" href="#" target="_blank"></a></p>
+      </div>
+    </div>
+
     <script>
         // Get the modal
         var modal = document.getElementById("shortenModal");
@@ -75,7 +76,7 @@
                 body: formData
             }).then(response => response.json())
               .then(data => {
-                  var shortLink = "https://shortify-n.vercel.app/" + data.short_code;
+                  var shortLink = data.short_code;
                   showModal(shortLink);
               });
         }
