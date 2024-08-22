@@ -38,6 +38,8 @@
         </div>
       </div>
     </div>
+    <!-- Error message container -->
+    <div id="error-message" class="error-message" style="display: none;"></div>
 
     <!-- Modal Structure -->
     <div id="shortenModal" class="modal">
@@ -61,6 +63,7 @@
 
         var modalContent = document.getElementsByClassName("modal-content");
 
+        var errorMessage = document.getElementById("error-message");
 
         var shortenedLink = document.getElementById("shortenedLink");
 
@@ -96,10 +99,14 @@
           var inputField = document.querySelector('input[name="original_url"]');
           var originalUrl = inputField.value.trim();
           
+          errorMessage.style.display = "none";
+
+
           if (originalUrl === "") {
-              alert("URL Required");
-              return;
-          }
+            errorMessage.innerHTML = "URL Required";
+            errorMessage.style.display = "block";
+            return;
+        }
 
             var form = document.getElementById("shortenForm");
             var formData = new FormData(form);
