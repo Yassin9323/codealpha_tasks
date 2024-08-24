@@ -1,7 +1,3 @@
-import { injectSpeedInsights } from '@vercel/speed-insights';
-
-injectSpeedInsights();
-
 // Get the modal
 var modal = document.getElementById("shortenModal");
         
